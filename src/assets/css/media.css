@@ -1,0 +1,22 @@
+@media screen and (max-width: 768px) {
+  .auth-title {
+    width: 60%;
+    padding: 7px;
+  }
+  .custom-card {
+    width: 90%!important;
+  }
+
+  .auth-avatar {
+    width: 90px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .logo-button {
+    width: 170px;
+  }
+}
+
+

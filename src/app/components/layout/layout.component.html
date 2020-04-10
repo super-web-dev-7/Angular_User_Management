@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm">
+    <div>
+        <a mat-button routerLink="/dashboard" routerLinkActive="active" class="logo-button">
+            <span class="logo-title">Test Project
+            </span>
+        </a>
+    </div>
+
+    <div>
+        <button mat-button [matMenuTriggerFor]="aboveMenu">
+            <img src="assets/image/default-avatar.png" class="avatar">
+            {{currentUser.user.email}}
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #aboveMenu="matMenu" yPosition="above" xPosition="before">
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>power_settings_new</mat-icon>
+                Log out
+            </button>
+        </mat-menu>
+    </div>
+</nav>
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.link"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive"
+    >
+        {{link.label}}
+    </a>
+</nav>
+<router-outlet></router-outlet>

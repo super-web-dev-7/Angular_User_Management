@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+}
+
+.mat-column-firstName {
+    width: 15%;
+}
+
+.mat-column-lastName {
+    width: 15%;
+}
+
+.mat-column-email {
+    width: 25%;
+}
+
+.mat-column-role {
+    width: 15%;
+}
+
+.mat-column-timestamp {
+    width: 30%
+}
+
+.mat-column-edit .mat-icon {
+    cursor: pointer;
+}
+
+.mat-column-edit .mat-icon:hover {
+    opacity: 0.8;
+}

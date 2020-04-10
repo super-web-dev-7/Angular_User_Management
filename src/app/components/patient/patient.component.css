@@ -1,0 +1,11 @@
+.mat-column-delete .mat-icon {
+    cursor: pointer;
+}
+
+.mat-column-delete .mat-icon:hover {
+    opacity: 0.8;
+}
+
+table {
+    width: 100%;
+}

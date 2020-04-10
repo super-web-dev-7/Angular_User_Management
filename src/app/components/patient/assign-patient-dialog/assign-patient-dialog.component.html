@@ -1,0 +1,14 @@
+<h5>Assign Doctor</h5>
+<div class="mat-elevation-z8">
+    <mat-list>
+        <mat-list-item [ngClass]="{'list-active': selectedDoctor == doctor}" (click)="onItemListClick(doctor)" *ngFor="let doctor of doctorList">
+            {{doctor.firstName}}  {{doctor.lastName}}
+        </mat-list-item>
+    </mat-list>
+    <mat-error *ngIf="submitted && selectedDoctor == null">Please select Doctor</mat-error>
+</div>
+
+<br>
+
+<button mat-raised-button color="primary" class="float-right" (click)="onSelect()">Select</button>
+<button mat-raised-button class="float-right" (click)="onCancel()">Cancel</button>

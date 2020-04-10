@@ -1,0 +1,58 @@
+<div class="auth-container">
+    <div class="card custom-card">
+        <div class="auth-title">
+            <h3>Register</h3>
+        </div>
+        <div class="card-body">
+            <img src="assets/image/default-avatar.png" class="auth-avatar">
+        </div>
+        <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Enter your firstname" formControlName="firstName"
+                               autofocus required>
+                        <mat-error *ngIf="submitted && f.firstName.hasError('required')">FirstName is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Enter your lastname" formControlName="lastName"
+                               required>
+                        <mat-error *ngIf="submitted && f.lastName.hasError('required')">LastName is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="full-width">
+                        <input type="email" matInput placeholder="Enter your email" formControlName="email" required>
+                        <mat-error *ngIf="submitted && f.email.hasError('required')">Email is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="full-width">
+                        <input type="password" matInput placeholder="Enter your password" formControlName="password"
+                               required>
+                        <mat-error *ngIf="submitted && f.password.hasError('required')">Password is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Select Role...</mat-label>
+                        <mat-select [(value)]="selected">
+                            <mat-option *ngFor="let role of roles" [value]="role.value">
+                                {{role.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <button type="submit" mat-button class="full-width btn-success">Register</button>
+                </div>
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+            </form>
+            <div class="text-secondary p-1">Do you already have account? <a href="/login">Log In</a></div>
+        </div>
+    </div>
+</div>
+

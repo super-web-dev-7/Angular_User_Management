@@ -1,0 +1,38 @@
+nav {
+    box-shadow: 0 0 15px 8px #dddddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    vertical-align: center;
+    z-index: 200;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 35px;
+    margin-right: 5px;
+}
+
+.logo-title {
+    color: #A4C547;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: ITC Bauhaus;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+.mat-menu-item .mat-icon {
+    margin-right: 3px;
+}
+
+.admin-link:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+mat-tab {
+    padding-bottom: 100px;
+}

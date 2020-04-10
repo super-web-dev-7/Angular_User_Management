@@ -1,0 +1,35 @@
+<div class="p-4 w-75 m-auto" >
+    <button *ngIf="currentUser.user.role == 2" mat-raised-button color="primary" class="float-right" (click)="openCreatePatientDialog()">Create User</button>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="full-width">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let element" data-label="Name"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="doctor" *ngIf="currentUser.user.role == 2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Doctor</th>
+                <td mat-cell *matCellDef="let element" data-label="Doctor">{{element.doctorId!=null ? element.doctorId.firstName : ''}} {{element.doctorId!=null ? element.doctorId.lastName : ''}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedAt</th>
+                <td mat-cell *matCellDef="let element" data-label="CreatedAt"> {{element.createdAt | date:"MMM/dd/yyyy, h:mm:ss a"}}  </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete" *ngIf="currentUser.user.role == 2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                <td mat-cell data-label="Delete" *matCellDef="let element" >
+                    <mat-icon (click)="assignPatient(element)">assignment_ind</mat-icon>
+                    <mat-icon (click)="deleteUser(element)">delete</mat-icon>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" ></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

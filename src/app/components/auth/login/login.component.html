@@ -1,0 +1,32 @@
+<div class="auth-container">
+  <div class="card custom-card">
+    <div class="auth-title">
+      <h3>Login</h3>
+    </div>
+    <div class="card-body">
+      <img src="assets/image/default-avatar.png" class="auth-avatar">
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <input type="email" matInput placeholder="Enter your email" formControlName="email" autofocus required>
+            <mat-error *ngIf="submitted && f.email.hasError('required')">Email is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <input type="password" matInput placeholder="Enter your password" formControlName="password" required>
+            <mat-error *ngIf="submitted && f.password.hasError('required')">Password is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <button type="submit" mat-button class="full-width btn-success">Sign in</button>
+        </div>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      </form>
+      <div class="text-secondary p-1">Don't have an account? <a href="/signup">Sign up</a></div>
+    </div>
+  </div>
+</div>
+
